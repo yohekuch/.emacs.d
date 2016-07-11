@@ -21,14 +21,18 @@
 (ido-vertical-mode)
 
 ;; C-n/p is more intuitive in vertical layout
-(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
+(defun sd/ido-define-keys ()
+  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-completion-map (kbd "<down>") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match)
+  (define-key ido-completion-map (kbd "<up>") 'ido-prev-match))
 
 (require 'dash)
 
 (defun my/ido-go-straight-home ()
   (interactive)
   (cond
-   ((looking-back "~/") (insert "projects/"))
+   ((looking-back "~/") (insert "hacks/"))
    ((looking-back "/") (insert "~/"))
    (:else (call-interactively 'self-insert-command))))
 
@@ -50,9 +54,6 @@
 ;; Always rescan buffer for imenu
 (set-default 'imenu-auto-rescan t)
 
-(add-to-list 'ido-ignore-directories "target")
-(add-to-list 'ido-ignore-directories "node_modules")
-
 ;; Ido at point (C-,)
 (require 'ido-at-point)
 (ido-at-point-mode)
@@ -69,7 +70,7 @@
           ad-do-it))))
 
 (ido-ubiquitous-use-new-completing-read webjump 'webjump)
-(ido-ubiquitous-use-new-completing-read yas-expand 'yasnippet)
-(ido-ubiquitous-use-new-completing-read yas-visit-snippet-file 'yasnippet)
+(ido-ubiquitous-use-new-completing-read yas/expand 'yasnippet)
+(ido-ubiquitous-use-new-completing-read yas/visit-snippet-file 'yasnippet)
 
 (provide 'setup-ido)

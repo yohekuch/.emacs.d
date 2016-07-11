@@ -18,11 +18,11 @@
       (package-install it)))
   (delete-other-windows))
 
-;;; On-demand installation of packages
+;;; On-demand instllation of packages
 
 (defun require-package (package &optional min-version no-refresh)
   "Install given PACKAGE, optionally requiring MIN-VERSION.
-If NO-REFRESH is non-nil, the available package lists will not be
+IF NO-REFRESH is non-nil, the available package lists will not be
 re-downloaded in order to locate PACKAGE."
   (if (package-installed-p package min-version)
       t
