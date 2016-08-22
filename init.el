@@ -48,7 +48,8 @@
 ;; Install extensions if they're missing
 (defun init--install-packages ()
   (packages-install
-   '(browse-kill-ring           ;; interactively insert items from kill-ring
+   '(auto-complete
+     browse-kill-ring           ;; interactively insert items from kill-ring
      change-inner               ;; Change contents based on semantic units
      dired-details              ;; make file details hide-able in dired
      elisp-slime-nav            ;; Make M-. and M-, work in elisp like they do in slime
@@ -170,7 +171,7 @@
 (require 'expand-region)
 (require 'multiple-cursors)
 (require 'delsel)
-(require 'jump-char)
+;;(require 'jump-char)
 (require 'wgrep)
 (require 'smart-forward)
 (require 'change-inner)
