@@ -1,3 +1,5 @@
+(package-initialize)
+
 ;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -49,8 +51,6 @@
 (defun init--install-packages ()
   (packages-install
    '(auto-complete
-     browse-kill-ring           ;; interactively insert items from kill-ring
-     change-inner               ;; Change contents based on semantic units
      dired-details              ;; make file details hide-able in dired
      elisp-slime-nav            ;; Make M-. and M-, work in elisp like they do in slime
      expand-region              ;; Increase selected region by semantic units.
@@ -65,26 +65,20 @@
      guide-key
      highlight-escape-sequences ;; Highlight escape sequences
      htmlize                    ;; Convert buffer text and decorations to HTML 
-     hydra                      ;; make Emacs bindings that stick around
      ido-at-point               ;; ido-style completion-at-point
      ido-vertical-mode
      magit
-     markdown-mode              ;; Major mode for Markdown-formatted text
-     move-text                  ;; Move current line or region with M-up or M-down.
      multiple-cursors
      paredit
      perspective                ;; switch between named "perspectives" of the editor
      prodigy                    ;; Manage external services from within Emacs
-     restclient                 ;; An interactive HTTP client for Emacs
      shell-command              ;; enables tab-completion for shell-command
-     simple-httpd               ;; pure elisp HTTP server
-     smart-forward              ;; Semantic navigation
      smartparens                ;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
-     string-edit                ;; Avoid escape nightmares by editing string in separate buffer
+	 smooth-scrolling
+	 undo-tree
      visual-regexp
-     wgrep                      ;; Writable grep buffer and apply the changes to files
      whitespace-cleanup-mode    ;; Intelligently call whitespace-cleanup on save
-     yasnippet)))
+     )))
 
 (condition-case nil
     (init--install-packages)
