@@ -68,15 +68,19 @@
      ido-at-point               ;; ido-style completion-at-point
      ido-vertical-mode
      magit
+     mozc
+     mozc-im
+     mozc-popup
      multiple-cursors
      paredit
      perspective                ;; switch between named "perspectives" of the editor
      prodigy                    ;; Manage external services from within Emacs
      shell-command              ;; enables tab-completion for shell-command
      smartparens                ;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
-	 smooth-scrolling
-	 undo-tree
+     smooth-scrolling
+     undo-tree
      visual-regexp
+     w3m
      whitespace-cleanup-mode    ;; Intelligently call whitespace-cleanup on save
      )))
 
@@ -95,12 +99,6 @@
 (guide-key-mode 1)
 (setq guide-key/recursive-key-sequence-flag t)
 (setq guide-key/popup-window-position 'bottom)
-
-;; C-h 2 backspace
-(keyboard-translate ?\C-h ?\C-?)
-
-;; C-x ? to help
-(global-set-key "\C-x?" 'help-command)
 
 ;; Setup extentions
 (eval-after-load 'ido '(require 'setup-ido))
@@ -166,9 +164,9 @@
 (require 'multiple-cursors)
 (require 'delsel)
 ;;(require 'jump-char)
-(require 'wgrep)
-(require 'smart-forward)
-(require 'change-inner)
+;;(require 'wgrep)
+;;(require 'smart-forward)
+;;(require 'change-inner)
 ;; (require 'multifiles)
 
 ;; Don't use expand-region fast keys
@@ -182,8 +180,8 @@
 (setq fci-rule-color "#111122")
 
 ;; Browse kill ring
-(require 'browse-kill-ring)
-(setq browse-kill-ring-quit-action 'save-and-restore)
+;;(require 'browse-kill-ring)
+;;(setq browse-kill-ring-quit-action 'save-and-restore)
 
 ;; Smart M-x is smart
 (require 'smex)
@@ -215,3 +213,7 @@
 
 (add-to-list 'auto-mode-alist '("\\*rc$" . sh-mode))
 
+(require 'mozc-popup)
+(setq mozc-candidate-style 'popup)
+
+(global-set-key "\C-o" 'mozc-mode)

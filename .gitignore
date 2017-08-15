@@ -21,3 +21,5 @@ history
 ido.last
 recentf
 bookmarks
+/eshell/
+smex-items
