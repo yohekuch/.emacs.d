@@ -4,3 +4,6 @@
 [submodule "site-lisp/s.el"]
 	path = site-lisp/s.el
 	url = https://github.com/magnars/s.el.git
+[submodule "site-lisp/smex"]
+	path = site-lisp/smex
+	url = https://github.com/nonsequitur/smex.git
