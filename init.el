@@ -105,17 +105,11 @@
 (eval-after-load 'org '(require 'setup-org))
 (eval-after-load 'dired '(require 'setup-dired))
 ;;(eval-after-load 'magit '(require 'setup-magit))
-;;(eval-after-load 'grep '(require 'setup-rgrep))
 (eval-after-load 'shell '(require 'setup-shell))
-;;(require 'setup-hippie)
-;;(require 'setup-yasnippet)
-;;(require 'setup-perspective)
-;;(require 'ffip)
-;;(require 'setup-html-mode)
-;;(require 'setup-paredit)
-
+(require 'setup-perspective)
+(require 'setup-ffip)
+(require 'setup-paredit)
 (require 'prodigy)
-(global-set-key (kbd "C-x M-m") 'prodigy)
 
 ;; Font lock dash.el
 (eval-after-load "dash" '(dash-enable-font-lock))
@@ -131,15 +125,8 @@
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
-;;(eval-after-load 'js2-mode '(require 'setup-js2-mode))
-;;(eval-after-load 'ruby-mode '(require 'setup-ruby-mode))
-;;(eval-after-load 'markdown-mode '(require 'setup-markdown-mode))
 
-;; Load stuff on demand
-;;(autoload 'skewer-start "setup-skewer" nil t)
-;;(autoload 'skewer-demo "setup-skewer" nil t)
-;;(autoload 'auto-complete-mode "auto-complete" nil t)
-;;(eval-after-load 'flycheck '(require 'setup-flycheck))
+(eval-after-load 'flycheck '(require 'setup-flycheck))
 
 ;; Map files to modes
 (require 'mode-mappings)
@@ -151,8 +138,6 @@
 
 ;; Visual regexp
 (require 'visual-regexp)
-(define-key global-map (kbd "M-&") 'vr/query-replace)
-(define-key global-map (kbd "M-/") 'vr/replace)
 
 ;; Functions (load all files in defuns-dir)
 (setq defuns-dir (expand-file-name "defuns" user-emacs-directory))
@@ -163,11 +148,6 @@
 (require 'expand-region)
 (require 'multiple-cursors)
 (require 'delsel)
-;;(require 'jump-char)
-;;(require 'wgrep)
-;;(require 'smart-forward)
-;;(require 'change-inner)
-;; (require 'multifiles)
 
 ;; Don't use expand-region fast keys
 (setq expand-region-fast-keys-enabled nil)
@@ -179,16 +159,9 @@
 (require 'fill-column-indicator)
 (setq fci-rule-color "#111122")
 
-;; Browse kill ring
-;;(require 'browse-kill-ring)
-;;(setq browse-kill-ring-quit-action 'save-and-restore)
-
 ;; Smart M-x is smart
 (require 'smex)
 (smex-initialize)
-
-;; Setup key bindings
-(require 'key-bindings)
 
 ;; default browser
 (setq browse-url-browser-function 'browse-url-generic)
@@ -196,24 +169,13 @@
       (if (file-exists-p "/opt/firefox/firefox")
           "/opt/firefox/firefox"))
 
-
+;; auto-complete
 (require 'auto-complete-config)
-
 (ac-config-default)
 
-;; tabで補完を完了する
-(define-key ac-completing-map "\t" 'ac-complete)
-(define-key ac-completing-map "\r" nil)
-
-;; C-n, C-pで補完メニューを選択する
-(setq ac-use-menu-map t)
-;; デフォルトで設定済み
-(define-key ac-menu-map "\C-n" 'ac-next)
-(define-key ac-menu-map "\C-p" 'ac-previous)
-
-(add-to-list 'auto-mode-alist '("\\*rc$" . sh-mode))
-
+;; mozc
 (require 'mozc-popup)
 (setq mozc-candidate-style 'popup)
 
-(global-set-key "\C-o" 'mozc-mode)
+;; Setup key bindings
+(require 'key-bindings)

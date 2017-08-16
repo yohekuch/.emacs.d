@@ -38,7 +38,7 @@
 (make-variable-buffer-local 'transient-mark-mode)
 (put 'transient-mark-mode 'permanent-local t)
 (setq-default transient-mark-mode t)
-
+;(require 'foo)
 ;; Remove text in active region if inserting text
 (delete-selection-mode 1)
 
@@ -62,19 +62,19 @@
 
 ;; Undo/redo window configuration with C-c <left>/<right>
 (winner-mode 1)
-
+;(require 'foo) kokomadeok
 ;; Never insert tabs
 (set-default 'indent-tabs-mode nil)
 
 ;; Show me empty lines after buffer end
 (set-default 'indicate-empty-lines t)
-
+;(require 'foo) kokomadeok
 ;; Easily navigate sillycased words
-(global-subword-mode 1)
-
+;(global-subword-mode 1)
+;(require 'foo) kokomade no aidani out
 ;; Don't break lines for me, please
 (setq-default truncate-lines t)
-
+;(require 'foo) kokomade no aidani out
 ;; Keep cursor away from edges when scrolling up/down
 (require 'smooth-scrolling)
 
@@ -89,7 +89,7 @@
 
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
-
+;(require 'foo) kokodeout
 ;; Represent undo-history as an actual tree (visualize with C-x u)
 (setq undo-tree-mode-lighter "")
 (require 'undo-tree)

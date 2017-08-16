@@ -10,10 +10,6 @@
   (when (file-directory-p path)
 	(add-to-list 'custom-theme-load-path path)))
 
-;; color-theme
-;(require 'color-theme)
-;(color-theme-initialize)
-
 ;; Default theme
 (defun use-default-theme ()
   (interactive)
@@ -24,12 +20,7 @@
                     'japanese-jisx0208
                     '("MeiryoKe_console" . "unicode-bmp")))
 
-
 (use-default-theme)
-
-;; transparent
-;; The first number is for the active window and the second is for the inactive window.
-;(add-to-list 'default-frame-alist '(alpha . (80 80)))
 
 ;; Don't defer screen updates when performing operations
 (setq redisplay-dont-pause t)
@@ -39,7 +30,6 @@
 (set-face-foreground 'show-paren-match-face "black")
 (set-face-background 'show-paren-match-face "SkyBlue1")
 
-;(add-hook 'input-method-activate-hook '(lambda () (set-cursor-color "red")))
 (add-hook 'input-method-inactivate-hook '(lambda () (set-cursor-color "white")))
 
 (when window-system
