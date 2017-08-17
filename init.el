@@ -105,7 +105,7 @@
 (eval-after-load 'ido '(require 'setup-ido))
 (eval-after-load 'org '(require 'setup-org))
 (eval-after-load 'dired '(require 'setup-dired))
-;;(eval-after-load 'magit '(require 'setup-magit))
+(eval-after-load 'magit '(require 'setup-magit))
 (eval-after-load 'shell '(require 'setup-shell))
 (require 'setup-perspective)
 (require 'setup-ffip)

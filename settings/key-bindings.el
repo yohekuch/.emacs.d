@@ -33,6 +33,10 @@
 ;; Query replace regex key binding
 (global-set-key (kbd "M-&") 'query-replace-regexp)
 
+;; Magit
+(global-set-key (kbd "C-x m") 'magit-status-fullscreen)
+(autoload 'magit-status-fullscreen "magit")
+
 ;; expand-regionn
 (global-set-key (kbd "C-'") 'er/expand-region)
 (global-set-key (kbd "C-M-'") 'er/contract-region)
