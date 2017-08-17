@@ -66,6 +66,7 @@
      highlight-escape-sequences ;; Highlight escape sequences
      htmlize                    ;; Convert buffer text and decorations to HTML 
      ido-at-point               ;; ido-style completion-at-point
+     ido-completing-read+       ;; ido-ubiquitous
      ido-vertical-mode
      magit
      mozc
