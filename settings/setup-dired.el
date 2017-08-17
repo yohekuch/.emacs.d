@@ -1,6 +1,9 @@
 (require 'dired)
 (require 'dash)
 
+;; Sort directories first
+(setq dired-listing-switches "-AFl --group-directories-first")
+
 ;; Make dired less verbose
 (require 'dired-details)
 (setq-default dired-details-hidden-string "--- ")
@@ -20,7 +23,7 @@
 ;; C-a is nicer in dired if it moves back to start of files
 (defun dired-back-to-start-of-files ()
   (interactive)
-  (backward-char (- (current-column 2))))
+  (backward-char (- (current-column) 2)))
 
 (define-key dired-mode-map (kbd "C-a") 'dired-back-to-start-of-files)
 (define-key dired-mode-map (kbd "k") 'dired-do-delete)
@@ -29,7 +32,7 @@
 (defun dired-back-to-top ()
   (interactive)
   (beginning-of-buffer)
-  (dired-next-line 4))
+  (dired-next-line 1))
 
 (define-key dired-mode-map (vector 'remap 'beginning-of-buffer) 'dired-back-to-top)
 (define-key dired-mode-map (vector 'remap 'smart-up) 'dired-back-to-top)
