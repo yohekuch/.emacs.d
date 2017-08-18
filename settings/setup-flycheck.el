@@ -2,7 +2,6 @@
 (require 'flycheck-pos-tip)
 
 ;; Enable flycheck anywhere
-;;(add-hook 'after-init-hook #'global-flycheck-mode)
 (global-flycheck-mode)
 
 (defun magnars/adjust-flycheck-automatic-syntax-eagerness ()

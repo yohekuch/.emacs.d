@@ -64,7 +64,7 @@
      gist                       ;; Emacs integration for gist.github.com
      guide-key
      highlight-escape-sequences ;; Highlight escape sequences
-     htmlize                    ;; Convert buffer text and decorations to HTML 
+     htmlize                    ;; Convert buffer text and decorations to HTML
      ido-at-point               ;; ido-style completion-at-point
      ido-completing-read+       ;; ido-ubiquitous
      ido-vertical-mode
@@ -126,6 +126,7 @@
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
+(eval-after-load 'python-mode '(require 'setup-python-mode))
 
 (eval-after-load 'flycheck '(require 'setup-flycheck))
 
@@ -166,7 +167,7 @@
 
 ;; default browser
 (setq browse-url-browser-function 'browse-url-generic)
-(setq browse-url-generic-program 
+(setq browse-url-generic-program
       (if (file-exists-p "/opt/firefox/firefox")
           "/opt/firefox/firefox"))
 
