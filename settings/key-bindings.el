@@ -14,6 +14,12 @@
 ;; Replace rectangle-text with inline-string-rectangle
 (global-set-key (kbd "C-x r t") 'inline-string-rectangle)
 
+;; Move more quickly
+(global-set-key (kbd "C-S-n") (λ (ignore-errors (next-line 5))))
+(global-set-key (kbd "C-S-p") (λ (ignore-errors (previous-line 5))))
+(global-set-key (kbd "C-S-f") (λ (ignore-errors (forward-char 5))))
+(global-set-key (kbd "C-S-b") (λ (ignore-errors (backward-char 5))))
+
 ;; Use Shell-like backspace C-h, rebind help to F1
 (define-key key-translation-map [?\C-h] [?\C-?])
 (global-set-key (kbd "<f1>") 'help-command)
@@ -24,6 +30,11 @@
 ;; Toggle two most recent buffers
 (fset 'quick-switch-buffer [?\C-x ?b return])
 (global-set-key (kbd "s-b") 'quick-switch-buffer)
+
+(global-set-key (kbd "s-y") 'bury-buffer)
+
+;; Navigation bindings
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 ;; File finding
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
@@ -36,6 +47,14 @@
 ;; Magit
 (global-set-key (kbd "C-x m") 'magit-status-fullscreen)
 (autoload 'magit-status-fullscreen "magit")
+
+;; Eval buffer
+(global-set-key (kbd "C-c C-k") 'eval-buffer)
+
+;; Buffer file functions
+(global-set-key (kbd "C-x t") 'touch-buffer-file)
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+(global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
 
 ;; expand-regionn
 (global-set-key (kbd "C-'") 'er/expand-region)
