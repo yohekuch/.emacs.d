@@ -126,7 +126,7 @@
   (add-hook it 'turn-on-smartparens-mode))
 
 ;; Language specific setup files
-(eval-after-load 'python-mode '(require 'setup-python-mode))
+(eval-after-load 'python '(require 'setup-python-mode))
 
 (eval-after-load 'flycheck '(require 'setup-flycheck))
 
