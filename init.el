@@ -175,9 +175,23 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+;; Elisp go-to-definition with M-. and back again with M-,
+(autoload 'elisp-slime-nav-mode "elisp-slime-nav")
+(add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t) (eldoc-mode 1)))
+
 ;; mozc
 (require 'mozc-popup)
 (setq mozc-candidate-style 'popup)
 
 ;; Setup key bindings
 (require 'key-bindings)
+
+;; Emacs server
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
+;; Run at full power please
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
