@@ -76,6 +76,7 @@
      paredit
      perspective                ;; switch between named "perspectives" of the editor
      prodigy                    ;; Manage external services from within Emacs
+     pyvenv                     ;; Python virtual environment interface
      shell-command              ;; enables tab-completion for shell-command
      smartparens                ;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
      smooth-scrolling
