@@ -112,6 +112,7 @@
 (require 'setup-ffip)
 (require 'setup-paredit)
 (require 'prodigy)
+(require 'pyvenv)
 
 ;; Font lock dash.el
 (eval-after-load "dash" '(dash-enable-font-lock))
