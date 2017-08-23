@@ -39,7 +39,12 @@
 ;; File finding
 (global-set-key (kbd "C-x f") 'recentf-ido-find-file)
 
+;; killing text
 (global-set-key (kbd "M-h") 'kill-region-or-backward-word)
+(global-set-key (kbd "C-w") 'kill-region-or-backward-word)
+
+;; Use M-w for copy-line if no active region
+(global-set-key (kbd "M-w") 'save-region-or-current-line)
 
 ;; Query replace regex key binding
 (global-set-key (kbd "M-&") 'query-replace-regexp)
