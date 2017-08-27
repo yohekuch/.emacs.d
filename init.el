@@ -76,6 +76,7 @@
      paredit
      perspective                ;; switch between named "perspectives" of the editor
      prodigy                    ;; Manage external services from within Emacs
+     pydoc                      ;; functional, syntax highlighted pydoc navigation
      pyvenv                     ;; Python virtual environment interface
      shell-command              ;; enables tab-completion for shell-command
      smartparens                ;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
@@ -113,6 +114,7 @@
 (require 'setup-paredit)
 (require 'prodigy)
 (require 'pyvenv)
+(require 'pydoc)
 
 ;; Font lock dash.el
 (eval-after-load "dash" '(dash-enable-font-lock))
