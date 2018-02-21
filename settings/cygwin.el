@@ -19,6 +19,7 @@
         (shell-file-name "cmdproxy") (comint-dynamic-complete t))
     (shell)))
 
+;; Don't rob emacs of super key
 (setq w32-pass-lwindow-to-system nil)
 (setq w32-lwindow-modifier 'super)
 
