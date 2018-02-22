@@ -19,8 +19,7 @@
         (shell-file-name "cmdproxy") (comint-dynamic-complete t))
     (shell)))
 
-;; Don't rob emacs of super key
-(setq w32-pass-lwindow-to-system nil)
-(setq w32-lwindow-modifier 'super)
+;; swap the win-key and apps-key by keyswap the win app.
+(setq w32-apps-modifier 'super)
 
 (provide 'cygwin)
