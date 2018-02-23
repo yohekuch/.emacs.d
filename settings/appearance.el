@@ -13,9 +13,9 @@
 ;; Default theme
 (defun use-default-theme ()
   (interactive)
-;  (color-theme-monokai)
   (load-theme 'default-black)
-  (set-default-font "Monaco-13")
+  (when (equal system-type 'cygwin) (set-default-font "Monaco-10"))
+  (when (equal system-type 'gnu/linux) (set-default-font "Monaco-13"))
   (set-fontset-font (frame-parameter nil 'font)
                     'japanese-jisx0208
                     '("MeiryoKe_console" . "unicode-bmp")))
