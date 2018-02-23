@@ -65,6 +65,18 @@
 (global-set-key (kbd "C-'") 'er/expand-region)
 (global-set-key (kbd "C-M-'") 'er/contract-region)
 
+;; Experimental multiple-cursors
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+
+;; Mark additional regions matching current region
+(global-set-key (kbd "M-'") 'mc/mark-all-dwim)
+
+;; Symbol and word specific mark-more
+(global-set-key (kbd "s-'") 'mc/mark-next-word-like-this)
+
+;; Extra multiple cursors stuff
+(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+
 ;; Should be able to eval-and-replace anywhere.
 (global-set-key (kbd "C-c C-e") 'eval-and-replace)
 
