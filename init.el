@@ -23,6 +23,10 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
+;; Local settings
+(setq local-settings-file (expand-file-name "local-settings.el" settings-dir))
+(load local-settings-file t)
+
 ;; Set up appearance early
 (require 'appearance)
 
@@ -51,7 +55,6 @@
 (defun init--install-packages ()
   (packages-install
    '(auto-complete
-     dired-details              ;; make file details hide-able in dired
      elisp-slime-nav            ;; Make M-. and M-, work in elisp like they do in slime
      expand-region              ;; Increase selected region by semantic units.
      f                          ;; Modern API for working with files and directories
@@ -69,10 +72,12 @@
      ido-completing-read+       ;; ido-ubiquitous
      ido-vertical-mode
      magit
+     mew
      mozc
      mozc-im
      mozc-popup
      multiple-cursors
+     navi2ch
      paredit
      perspective                ;; switch between named "perspectives" of the editor
      prodigy                    ;; Manage external services from within Emacs
@@ -184,11 +189,19 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (elisp-slime-nav-mode t) (eldoc-mode 1)))
 
 ;; mozc
-(require 'mozc-popup)
-(setq mozc-candidate-style 'popup)
+(when (equal system-type 'gnu/linux)
+  (require 'mozc-popup)
+  (setq mozc-candidate-style 'popup))
+
+;; navi2ch
+(eval-after-load 'navi2ch '(require 'setup-navi2ch))
 
 ;; Setup key bindings
 (require 'key-bindings)
+
+;; cygwin
+(when (equal system-type 'cygwin)
+  (require 'cygwin))
 
 ;; Emacs server
 (require 'server)
