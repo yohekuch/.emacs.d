@@ -4,11 +4,6 @@
 ;; Sort directories first
 (setq dired-listing-switches "-AFl --group-directories-first")
 
-;; Make dired less verbose
-(require 'dired-details)
-(setq-default dired-details-hidden-string "--- ")
-(dired-details-install)
-
 ;; Move files between split panes
 (setq dired-dwim-target t)
 
