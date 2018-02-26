@@ -103,6 +103,9 @@
 ;; enable mozc-popup
 (global-set-key "\C-o" 'mozc-mode)
 
+;; Jump from file to containing directory
+(global-set-key (kbd "C-x C-j") 'dired-jump) (autoload 'dired-jump "dired")
+
 ;; Find file in project
 (global-set-key (kbd "C-x o") 'find-file-in-current-directory)
 
