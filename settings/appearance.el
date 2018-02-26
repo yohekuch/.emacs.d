@@ -37,4 +37,15 @@
   (tooltip-mode -1)
   (blink-cursor-mode -1))
 
+;; Unclutter the modeline
+(require 'diminish)
+(eval-after-load "auto-complete" '(diminish 'auto-complete-mode))
+(eval-after-load "eldoc" '(diminish 'eldoc-mode))
+(eval-after-load "paredit" '(diminish 'paredit-mode))
+(eval-after-load "elisp-slime-nav" '(diminish 'elisp-slime-nav-mode))
+(eval-after-load "smartparens" '(diminish 'smartparens-mode))
+(eval-after-load "guide-key" '(diminish 'guide-key-mode))
+(eval-after-load "whitespace-cleanup-mode" '(diminish 'whitespace-cleanup-mode))
+(eval-after-load "subword" '(diminish 'subword-mode))
+
 (provide 'appearance)
