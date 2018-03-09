@@ -85,7 +85,6 @@
      pyvenv                     ;; Python virtual environment interface
      shell-command              ;; enables tab-completion for shell-command
      smartparens                ;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
-     smooth-scrolling
      undo-tree
      visual-regexp
      w3m
