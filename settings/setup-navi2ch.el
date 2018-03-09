@@ -30,7 +30,7 @@ IDに使われる文字は +/[0-9][A-Z][a-z] の64文字、これが4文字分�
       (setq id-index (1+ id-index)))
     (format "#%x" color-code)))
 
-(defun navi2ch-article-default-header-format-function (number name mail date)
+(defun navi2ch-article-default-header-format-function (number name mail date-id)
   "デフォルトのヘッダをフォーマットする関数。
 ヘッダの face を付けるのもここで。"
   (when (string-match (concat "\\`" navi2ch-article-number-number-regexp
@@ -41,7 +41,7 @@ IDに使われる文字は +/[0-9][A-Z][a-z] の64文字、これが4文字分�
 					    'number
 					    (match-string 0 name)
 					    name))
-  (let ((from-header (navi2ch-propertize "From: "
+  (let* ((from-header (navi2ch-propertize "From: "
 					 'face 'navi2ch-article-header-face))
         (from (navi2ch-propertize (concat (format "[%d] " number)
 					  name
@@ -49,21 +49,23 @@ IDに使われる文字は +/[0-9][A-Z][a-z] の64文字、これが4文字分�
 				  'face 'navi2ch-article-header-contents-face))
         (date-header (navi2ch-propertize "Date: "
 					 'face 'navi2ch-article-header-face))
-        
-	(date (navi2ch-propertize (concat (car (split-string date "ID:")) "ID:")
+	(date (navi2ch-propertize (concat (car (split-string date-id "ID:")) "ID:")
 				  'face
 				  'navi2ch-article-header-contents-face))
-	(id (navi2ch-propertize (cadr (split-string date "ID:"))
+        (id-raw (if (equal (cadr (split-string date-id "ID:")) nil)
+                    "++++++++"
+                  (cadr (split-string date-id "ID:"))))
+	(id (navi2ch-propertize id-raw
                                 'face
                                 (list t
                                       :box
                                       '(:line-width 1 :color "white")
                                       :foreground
                                       (navi2ch-article-id-color
-                                       (substring (cadr (split-string date "ID:")) 4 8))
+                                       (substring id-raw 4 8))
                                       :background
                                       (navi2ch-article-id-color
-                                       (substring (cadr (split-string date "ID:")) 0 4)))))
+                                       (substring id-raw 0 4)))))
 	(start 0) next)
     (while start
       (setq next
