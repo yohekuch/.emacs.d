@@ -87,7 +87,7 @@
      smartparens                ;; Automatic insertion, wrapping and paredit-like navigation with user defined pairs.
      undo-tree
      visual-regexp
-     w3m
+     w3m                        ;; w3m web browser
      whitespace-cleanup-mode    ;; Intelligently call whitespace-cleanup on save
      )))
 
